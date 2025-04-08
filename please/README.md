@@ -1,12 +1,10 @@
-# React + Vite
+# Spotify API School Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a project that is (hopefully) going to access spotifys api and give you information based on your profile. so far it has been a hot mess, but im confident im going to get things working
 
-Currently, two official plugins are available:
+## personal remember notes
+dont forget about the env, and dont forget to redownload node things if doing on a new computer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## current project status
+NON WORKING STATE
+the project currently does not work and lots of code needs to be written
