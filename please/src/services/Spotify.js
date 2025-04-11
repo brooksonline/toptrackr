@@ -2,13 +2,17 @@ const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
-if (!code) {
-  redirectToAuthCodeFlow(clientId);
-  const accessToken = await getAccessToken(clientId, code);
-  localStorage.setItem("access_token", accessToken);
-  console.log("user profile: ", profile);
-  const profile = await fetchProfile(accessToken);
-}
+(async () => {
+  if (!code) {
+    redirectToAuthCodeFlow(clientId);
+  } else {
+    const accessToken = await getAccessToken(clientId, code);
+    const profile = await fetchProfile(accessToken);
+
+    localStorage.setItem("access_token", accessToken);
+    console.log("user profile: ", profile);
+  }
+})();
 
 export async function redirectToAuthCodeFlow(clientId) {
   const verifier = generateCodeVerifier(128);
