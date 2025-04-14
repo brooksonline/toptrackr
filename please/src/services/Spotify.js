@@ -8,9 +8,11 @@ const code = params.get("code");
   } else {
     const accessToken = await getAccessToken(clientId, code);
     const profile = await fetchProfile(accessToken);
+    const topTracks = await fetchTopFiveTracks(accessToken);
 
     localStorage.setItem("access_token", accessToken);
     console.log("user profile: ", profile);
+    console.log("user top five tracks: ", topTracks);
   }
 })();
 
@@ -24,7 +26,7 @@ export async function redirectToAuthCodeFlow(clientId) {
   params.append("client_id", clientId);
   params.append("response_type", "code");
   params.append("redirect_uri", "http://localhost:5173/dashboard");
-  params.append("scope", "user-read-private user-read-email");
+  params.append("scope", "user-read-private user-read-email user-top-read");
   params.append("code_challenge_method", "S256");
   params.append("code_challenge", challenge);
 
@@ -76,6 +78,18 @@ async function fetchProfile(token) {
     method: "GET",
     headers: { Authorization: `Bearer ${token}` },
   });
+
+  return await result.json();
+}
+
+async function fetchTopFiveTracks(token) {
+  const result = await fetch(
+    "https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=5&offset=0",
+    {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    }
+  );
 
   return await result.json();
 }
