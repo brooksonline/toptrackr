@@ -7,12 +7,9 @@ const code = params.get("code");
     redirectToAuthCodeFlow(clientId);
   } else {
     const accessToken = await getAccessToken(clientId, code);
-    const profile = await fetchProfile(accessToken);
-    const topTracks = await fetchTopFiveTracks(accessToken);
-
-    localStorage.setItem("access_token", accessToken);
-    console.log("user profile: ", profile);
-    console.log("user top five tracks: ", topTracks);
+    if (accessToken) {
+      localStorage.setItem("access_token", accessToken);
+    }
   }
 })();
 

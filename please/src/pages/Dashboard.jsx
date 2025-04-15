@@ -68,7 +68,7 @@ const Dashboard = () => {
       }
     };
     fetchTopFiveTracks();
-  }, []);
+  }, [profile]);
 
   const greetings = [
     "welcome",
