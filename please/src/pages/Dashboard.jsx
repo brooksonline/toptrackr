@@ -84,6 +84,7 @@ const Dashboard = () => {
     "howdy-doo",
     "what's shaking",
     "sup",
+    "meowdy",
   ];
 
   const randomGreeting =
