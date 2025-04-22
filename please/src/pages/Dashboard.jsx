@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../css/Dashboard.css";
 
 const Dashboard = () => {
   const [profile, setProfile] = useState(null);
@@ -25,11 +26,11 @@ const Dashboard = () => {
 
         const data = await result.json();
         console.log("Profile data:", data);
-        setProfile(data); // Update the profile state
+        setProfile(data);
       } catch (error) {
         console.error("Error fetching profile:", error);
         setError(
-          "failed to load dashboard. reason: failed to load profile data"
+          "failed to load dashboard. reason: failed to load profile data. try refreshing the page!"
         );
       }
     };
@@ -59,11 +60,11 @@ const Dashboard = () => {
 
         const data = await result.json();
         console.log("Top tracks data:", data);
-        setTopTracks(data.items); // Update the topTracks state
+        setTopTracks(data.items);
       } catch (error) {
         console.error("Error fetching top tracks:", error);
         setError(
-          "dashboard failed to load. reason: failed to fetch top tracks"
+          "dashboard failed to load. reason: failed to fetch top tracks. try refreshing the page!"
         );
       }
     };
