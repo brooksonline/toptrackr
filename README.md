@@ -6,5 +6,5 @@ This is a project that is (hopefully) going to access spotifys api and give you 
 dont forget about the env, and dont forget to redownload node things if doing on a new computer
 
 ## current project status
-NON WORKING STATE
-the project currently does not work and lots of code needs to be written
+semi working state (closed beta, wont work unless youre registered on my dev page)
+bugs are present but the main dashboard of the website works well
